@@ -20,6 +20,10 @@ const User = db.sequelize.define(
         birth : {
             type : Sequelize.DATE,
         },
+        coin : {
+            type : Sequelize.INTEGER,
+            defaultValue : 0
+        }
     },
     {
         timestamps: false
