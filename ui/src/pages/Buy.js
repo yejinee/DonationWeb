@@ -1,4 +1,4 @@
-//20.기부물품구매 
+//20.기부물품구매 22
 import React from 'react'
 import vacc2 from '../image/vacc2.png';
 import water from '../image/water.png';
