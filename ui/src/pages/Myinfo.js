@@ -17,22 +17,19 @@ const HomepageLayout = () => (
            <tbody>
                <tr>
        <td><div class="ui segment"style={{marginRight:'50px'}}>
-        <p style={{fontSize:'1.5em'}}>보유코인</p>
+        <p style={{fontSize:'1.5em', textAlign : 'center'}}>보유코인</p>
        <div class="ui clearing divider"></div>
 
 
-       <div class="ui medium image">
-         <div style={{width:"168px",height:"168px",color: '#FFFFFF', background:'#219451'}} class="ui circular inverted segment">
-          <div  sytle={{marginTop:'20px'}}>
-           <h1 class="ui inverted header">
+       <div class="ui medium image" style ={{display:'flex', justifyContent: 'center'}}>
+         <div style={{width:"168px",height:"168px", background:'#219451'}} class="ui circular inverted segment">
+           <h1 class="ui inverted header" style ={{marginTop:'35px'}}>
          500 코인
-          <div class="sub header"></div>
           </h1>
-         </div>
          </div>
      </div>
 
-     <Link to="/coincharge"><Button size='medium' style={{color: '#FFFFFF', background:'#1E8157',marginLeft:'-50px'}}>충전하기</Button></Link>
+     <Link to="/coincharge"><Button size='medium' style={{color: '#FFFFFF', background:'#1E8157',marginLeft:'95px', marginTop: '20px'}}>충전하기</Button></Link>
 
 
 
@@ -41,20 +38,18 @@ const HomepageLayout = () => (
 
 
 <td><div class="ui segment">
-<p style={{fontSize:'1.5em'}}>총 후원코인</p>
+<p style={{fontSize:'1.5em', textAlign: 'center'}}>총 후원코인</p>
   <div class="ui clearing divider"></div>
 
-  <div class="ui medium image">
-         <div style={{width:"168px",height:"168px",color: '#FFFFFF', background:' #61BB87'}} class="ui circular inverted segment">
-          <div  sytle={{marginTop:'20px'}}>
-           <h1 class="ui inverted header">
+  <div class="ui medium image" style ={{display:'flex', justifyContent: 'center'}}>
+         <div style={{width:"168px",height:"168px",color: '#FFFFFF', background:' #219451'}} class="ui circular inverted segment">
+           <h1 class="ui inverted header" style={{marginTop:'35px'}}>
          850 코인
           <div class="sub header"></div>
           </h1>
          </div>
-         </div>
      </div>
-    <Link to="/mycampalist"><Button size='medium' style={{color: '#FFFFFF', background:'#1E8157',marginLeft:'-50px'}}>후원 내역 보기</Button></Link>
+    <Link to="/mycampalist"><Button size='medium' style={{color: '#FFFFFF', background:'#1E8157',marginLeft:'85px', marginTop: '20px'}}>후원 내역 보기</Button></Link>
 </div></td>
 </tr>
 </tbody>

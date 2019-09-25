@@ -29,7 +29,6 @@ class DesktopContainer extends Component {
       const { fixed } = this.state;
       let minHeight = ''
       Home === true ? minHeight = 700 : minHeight =100;
-      console.log(sessionStorage.usertoken);
       return (
         <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
           <Visibility
@@ -40,7 +39,7 @@ class DesktopContainer extends Component {
             <Segment
               
               textAlign='center'
-              style={{ minHeight: minHeight, padding: '1em 0em' }}
+              style={{ minHeight: minHeight, padding: 0, marginTop: 0 }}
               vertical
             >
               <Menu style={{color: '#FFFFFF', background:'#27AE60', padding:"7px 0px 15px 0px"}}
@@ -52,7 +51,7 @@ class DesktopContainer extends Component {
               >
                 <Container>
                  <Menu.Item as={Link}to ='' header>
-                  <Image size='small' src={dnlogo} style={{ marginRight: '1.5em' }} />
+                  <Image size='small' src={dnlogo} style={{ top: '10px', marginRight: '1em' }} />
                   </Menu.Item>
                   <Menu.Item as={Link}to='/donation'>후원하기</Menu.Item>
                   <Menu.Item as={Link}to='/partner'>파트너기업</Menu.Item>
@@ -65,7 +64,7 @@ class DesktopContainer extends Component {
                     <Link to ="/signup">Sign up</Link>
                     </> :
                     <>
-                   <Link to ="/mypage" style={{ marginRight: '1.5em'}}>MyPage</Link>
+                   <Link to ="/myinfo" style={{ marginRight: '1.5em'}}>MyPage</Link>
                    <a onClick={this.logOut}>LogOut</a>
                    </>
                     }

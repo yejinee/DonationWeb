@@ -3,7 +3,7 @@ const Coins = express.Router();
 const User = require('../models/User');
 const Sequelize = require('sequelize');
 
-Coins.get('/getAllCoins/:email', (req, res) => {  // 로그인
+Coins.get('/getAllCoins/:email', (req, res) => {  // 코인 가져오기
     let { email } = req.params;
     User.findOne(
         {
@@ -19,7 +19,8 @@ Coins.get('/getAllCoins/:email', (req, res) => {  // 로그인
         console.error(err);
     })
 });
-Coins.post('/chargeCoins', (req, res) => {  // 로그인
+
+Coins.post('/chargeCoins', (req, res) => {  //차지코인
     let { email, chargeCoin } = req.body;
     User.update(
         {
@@ -39,8 +40,9 @@ Coins.post('/chargeCoins', (req, res) => {  // 로그인
         console.error(err);
     })
 });
-Coins.post('/useCoins', (req, res) => {  // 로그인
+Coins.post('/useCoins', (req, res) => {  // 코인 사용
     let { email, useCoins } = req.body;
+    console.log(emial, useCoins);
     User.update(
         {
             coin: Sequelize.literal("coin -" + useCoins)
