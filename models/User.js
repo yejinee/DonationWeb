@@ -23,6 +23,10 @@ const User = db.sequelize.define(
         coin : {
             type : Sequelize.INTEGER,
             defaultValue : 0
+        },
+        userType : {
+            type : Sequelize.INTEGER,
+            defaultValue : 0
         }
     },
     {

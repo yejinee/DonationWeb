@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getWidth } from './pageFunction';
+import { getWidth, getUserType } from './pageFunction';
 import { Link, withRouter } from 'react-router-dom';
 import {
     Container,
@@ -13,8 +13,24 @@ import dnlogo from '../image/dnlogo.png';
 import HomepageHeading from './HomepageHeading'
 
 class DesktopContainer extends Component {
-    state = { }
-
+    state = {
+      userType : ''
+     }
+    // userType이 0 이면 개인 1 이면 그룹
+    componentDidMount(){  // 처음 그릴 때 userType을 props로부터 받아서 설정.
+      let {userType} = this.props
+      this.setState({
+        userType 
+      })
+    }
+    componentDidUpdate(prevProps) {  // props의 userType이 변경 되면 그 userType으로 변경
+      if(prevProps.userType !== this.props.userType){
+        this.setState({
+          userType : this.props.userType
+        })
+      }
+    }
+  
     hideFixedMenu = () => this.setState({ fixed: false })
     showFixedMenu = () => this.setState({ fixed: true })
 
@@ -26,7 +42,7 @@ class DesktopContainer extends Component {
   }
     render() {
       const { children,Home} = this.props;
-      const { fixed } = this.state;
+      const { fixed, userType } = this.state;
       let minHeight = ''
       Home === true ? minHeight = 700 : minHeight =100;
       return (
@@ -63,8 +79,14 @@ class DesktopContainer extends Component {
                     <Link to ="/login" style={{ marginRight: '1.5em'}}>Login</Link>
                     <Link to ="/signup">Sign up</Link>
                     </> :
+                    userType === 0 ?  // 유저타입이 0이면 즉 개인이면 
                     <>
                    <Link to ="/myinfo" style={{ marginRight: '1.5em'}}>MyPage</Link>
+                   <a onClick={this.logOut}>LogOut</a>
+                   </>
+                   :      // 유저타입이 0이 아니면 즉 1이면, 그룹이면
+                   <>
+                   <Link to ="/groupintroduction" style={{ marginRight: '1.5em'}}>GroupPage</Link>
                    <a onClick={this.logOut}>LogOut</a>
                    </>
                     }

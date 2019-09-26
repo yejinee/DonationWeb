@@ -5,13 +5,17 @@ import { Home, Signup, Login, Donation, Donation2,Partner,Donacard,Donacoin,
 import { Route, Switch, withRouter } from 'react-router-dom';
 import ResponsiveContainer from '../src/pages/ResponsiveContainer';
 import Footer from './pages/Footer';
+import { getUserType } from './pages/pageFunction';
+
 class App extends Component {
   state = {
-    Home : true
+    Home : true,
+    userType : false
   }
-  componentDidMount() {
+  componentDidMount() {  // 처음에 마운트하고 난 후 유저타입을 설정한다. 
      this.props.match.isExact === true ? this.setState({Home:true}) : 
      this.setState({Home:false});
+     this.setUserType();
 
 }
 componentDidUpdate(prevProps, prevState) {
@@ -20,13 +24,20 @@ componentDidUpdate(prevProps, prevState) {
      this.setState({Home:false});
     }
 }
+setUserType = () => {  // DB에서 받아 설정한 usertoken으로부터 유저타입을 설정하는 것.
+  let userType = getUserType();
+  this.setState({
+    userType
+  })
+}
   render() {
+    const { Home, userType } = this.state;
     return (
       <>
-        <ResponsiveContainer Home = {this.state.Home}/>
+        <ResponsiveContainer Home = {Home} userType={userType}/>
         <Switch>
           <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
+          <Route path="/login" component={() => <Login setUserType={this.setUserType}/>} /> {/* Login으로 props를 내려주기 위함. */}
           <Route path="/donation" component={Donation} />
           <Route path="/donation2" component={Donation2} />
           <Route path="/partner" component={Partner} />

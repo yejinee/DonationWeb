@@ -27,42 +27,6 @@ const SideContent = ({part, info}) => {
             <Link to ="/mycampalist" style={info ? {fontWeight : 'bold', fontSize:'1.28em', color: '#27AE60'} : {fontSize:'1.28em', color: '#000000'}}colorblack>나의 후원 내역</Link> <hr style={{marginLeft:'0em'}} width="170"/>
             <Link to ="/myinfo" style={info ? { fontSize:'1.28em', color: '#000000'} : {fontWeight : 'bold', fontSize:'1.28em', color: '#27AE60'}}colorblack>나의 정보</Link> <hr style={{marginLeft:'0em'}} width="170"/>
             </>
-            : 
-            part === 'groupmypage1' ?
-            <>
-            <p as='a'header style={{fontSize:'2em'}}>마이 페이지<br/></p>
-            <Link to ="/groupintroduction" style={{fontWeight : 'bold',fontSize:'1.28em', color: '#27AE60'}}colorblack>단체 소개</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/campalist" style={ { fontSize:'1.28em', color: '#000000'}}colorblack>캠페인 등록하기</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/buy" style={{ fontSize:'1.28em', color: '#000000'}}colorblack>기부물품 구매</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/shoppingbasket" style={{ fontSize:'1.28em', color: '#000000'}}colorblack>장바구니</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-          </>
-          : 
-          part === 'groupmypage2' ?
-            <>
-            <p as='a'header style={{fontSize:'2em'}}>마이 페이지<br/></p>
-            <Link to ="/groupintroduction" style={{fontSize:'1.28em', color: '#000000'}}colorblack>단체 소개</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/campalist" style={ { fontWeight : 'bold',fontSize:'1.28em', color: '#27AE60'}}colorblack>캠페인 등록하기</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/buy" style={{ fontSize:'1.28em', color: '#000000'}}colorblack>기부물품 구매</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/shoppingbasket" style={{ fontSize:'1.28em', color: '#000000'}}colorblack>장바구니</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-          </>
-          : 
-          part === 'groupmypage3' ?
-            <>
-            <p as='a'header style={{fontSize:'2em'}}>마이 페이지<br/></p>
-            <Link to ="/groupintroduction" style={{fontSize:'1.28em', color: '#000000'}}colorblack>단체 소개</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/campalist" style={ { fontSize:'1.28em', color: '#000000'}}colorblack>캠페인 등록하기</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/buy" style={{ fontWeight : 'bold',fontSize:'1.28em', color: '#27AE60'}}colorblack>기부물품 구매</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/shoppingbasket" style={{ fontSize:'1.28em', color: '#000000'}}colorblack>장바구니</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-          </>
-          : 
-          part === 'groupmypage4' ?
-            <>
-            <p as='a'header style={{fontSize:'2em'}}>마이 페이지<br/></p>
-            <Link to ="/groupintroduction" style={{fontSize:'1.28em', color: '#000000'}}colorblack>단체 소개</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/campalist" style={ { fontSize:'1.28em', color: '#000000'}}colorblack>캠페인 등록하기</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/buy" style={{ fontSize:'1.28em', color: '#000000'}}colorblack>기부물품 구매</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-            <Link to ="/shoppingbasket" style={{ fontWeight : 'bold',fontSize:'1.28em', color: '#27AE60'}}colorblack>장바구니</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-          </>
           : 
           part === 'coincharge' ?
           <>
@@ -71,8 +35,12 @@ const SideContent = ({part, info}) => {
         </>
           :
           <>
-          </>
-         
+          <p as='a'header style={{fontSize:'2em'}}>그룹 페이지<br/></p>
+          <Link to ="/groupintroduction" style={part === 'groupmypage1' ? {fontWeight : 'bold',fontSize:'1.28em', color :'#27AE60' } : {fontSize:'1.28em', color :'#000000' } }colorblack>단체 소개</Link> <hr style={{marginLeft:'0em'}} width="170"/>
+          <Link to ="/campalist" style={ part === 'groupmypage2' ? {fontWeight : 'bold',fontSize:'1.28em', color :'#27AE60' } : {fontSize:'1.28em', color :'#000000' }}colorblack>캠페인 등록하기</Link> <hr style={{marginLeft:'0em'}} width="170"/>
+          <Link to ="/buy" style={part === 'groupmypage3' ? {fontWeight : 'bold',fontSize:'1.28em', color :'#27AE60' } : {fontSize:'1.28em', color :'#000000' }}colorblack>기부물품 구매</Link> <hr style={{marginLeft:'0em'}} width="170"/>
+          <Link to ="/shoppingbasket" style={part === 'groupmypage4' ? {fontWeight : 'bold',fontSize:'1.28em', color :'#27AE60' } : {fontSize:'1.28em', color :'#000000' }}colorblack>장바구니</Link> <hr style={{marginLeft:'0em'}} width="170"/>
+        </>    
           
             }
         </div>  

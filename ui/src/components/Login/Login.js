@@ -23,6 +23,7 @@ class Login extends Component {
     }
     login(info).then(res => {
       if(res){
+        this.props.setUserType();
         this.props.history.push('/');
       }
     })

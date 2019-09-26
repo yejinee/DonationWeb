@@ -8,7 +8,7 @@ class Login extends Component {
   render() {
     return(
       <Segment style={{ padding: '6em 15.6em 20em', display: 'flex', justifyContent: 'center', marginTop:'30px' }} vertical >
-            <Login2/>
+            <Login2 setUserType = {this.props.setUserType}/>
             </Segment>
     )
   }

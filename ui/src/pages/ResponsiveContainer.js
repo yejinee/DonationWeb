@@ -5,11 +5,11 @@ import { withRouter } from 'react-router-dom';
 
 class ResponsiveContainer extends Component {
     render(){
-        const {children, Home} = this.props;
+        const {children, Home, userType} = this.props;
         return(
             <div>
-            <DesktopContainer Home = {Home}>{children}</DesktopContainer>
-            <MobileContainer  Home = {Home}>{children}</MobileContainer>
+            <DesktopContainer Home = {Home} userType = {userType}>{children}</DesktopContainer>
+            <MobileContainer  Home = {Home} userType = {userType}>{children}</MobileContainer>
           </div>
         )
     }

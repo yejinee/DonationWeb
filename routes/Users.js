@@ -58,12 +58,16 @@ users.post('/signup', (req, res, next) => {   // 유저 등록
         } else {
             console.log(req.body);
             req.logIn(user, error => {
+                let userType = '';
+                if(req.body.userType === true) userType = 1;
+                else userType = 0;
                 const userData = {
                     email : req.body.email,
                     PASSWORD: req.body.PASSWORD,
                     name : req.body.name,
                     birth : req.body.birth,
-                    phoneNumber : req.body.phoneNumber
+                    phoneNumber : req.body.phoneNumber,
+                    userType
                 };
                 User.findOne({
                     where: {

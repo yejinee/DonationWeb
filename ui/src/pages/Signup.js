@@ -11,11 +11,12 @@ class HomepageLayout extends Component {
     phoneNumber : '',
     birth : '',
     check : false,
-    emailCheck : false
+    emailCheck : false,
+    userType : false
   }
   onSubmit = (e) => {
     e.preventDefault();
-    const { PASSWORD, name, phoneNumber, birth, email ,check, emailCheck} = this.state;
+    const { PASSWORD, name, phoneNumber, birth, email ,check, emailCheck, userType} = this.state;
     if(check === false){
       alert('약관 동의를 해주세요.');
     }
@@ -29,6 +30,7 @@ class HomepageLayout extends Component {
         name,
         phoneNumber,
         birth,
+        userType
       };
       signUp(info).then(res => {
         if(res){
@@ -45,6 +47,11 @@ class HomepageLayout extends Component {
   onHandleCheck = (e) => {
     this.setState({
       check : !this.state.check
+    })
+  }
+  onHandleUserType = (e) => {
+    this.setState({
+      userType : !this.state.userType
     })
   }
   onClick = () => {
@@ -112,9 +119,14 @@ class HomepageLayout extends Component {
                 <input placeholder="6자리입력"  type = "date" name ="birth" onChange = {this.onChange} />
               </div>
               <div className="field">
+                <label>그룹 회원이신가요?</label>
+                <input type = "checkbox" name ="userType" onChange = {this.onHandleUserType} />
+              </div>
+              <div className="field">
                 <div className="ui checkbox">
                   <input
                     type="checkbox"
+                    name = "check"
                     onChange={this.onHandleCheck}
                   />
                   <label>I agree to the Terms and Conditions</label>
