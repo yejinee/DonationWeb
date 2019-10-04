@@ -85,3 +85,48 @@ export const getCoin = async (email) => { // 코인이 얼마있는지 가져와
     console.error(err);
   })
 }
+
+export const regProgram = async (proData) => {
+  return await axios
+  .post(`/api/pro/register`, proData)
+  .then(res => {
+    return res.data;
+  })
+  .catch(err => {
+    console.error(err);
+  })
+}
+
+export const getAllPrograms = async () => {
+  return await axios
+  .get(`/api/pro/getAllPrograms`)
+  .then(res => {
+    return res.data;
+  })
+  .catch(err => {
+    console.error(err);
+  }
+  )
+}
+
+export const getAllProgramsID = async (userEmail) => { // 아이디를 받아서 그 아이디의 프로그램을 가져옴
+  return await axios
+  .get(`/api/pro/getAllProgramsID/${userEmail}`)
+  .then(res =>{
+    return res.data;
+  })
+  .catch(err => {
+    console.error(err);
+  })
+}
+
+export const getNumProgram = async (proNum) => { // 해당 num의 프로그램의 정보를 가지고 온다.
+  return await axios
+  .get(`/api/pro/getNumProgram/${proNum}`)
+  .then(res => {
+    return res.data;
+  })
+  .catch(err => {
+    console.error(err);
+  })
+}

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../database/db');
-
+const prolist = require('./prolist');
 const User = db.sequelize.define(
     'user',
     {
@@ -33,5 +33,7 @@ const User = db.sequelize.define(
         timestamps: false
     }
 )
+
+User.hasMany(prolist, { foreignKey: 'userEmail', sourceKey: 'email' })
 
 module.exports = User;

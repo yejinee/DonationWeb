@@ -20,3 +20,4 @@ export { default as Coincharge } from './Coincharge';
 export { default as Coincharge2 } from './Coincharge2';
 export { default as Coincharge3 } from './Coincharge3';
 export { default as Buydone } from './Buydone';
+export { default as CamparegiDone } from './CamparegiDone';
