@@ -18,14 +18,27 @@ class HomepageLayout extends Component {
       this.setState({
         program : res
       })
-      console.log(res);
     })
   }
 
   render() {
     const { program } = this.state;
+    const date = new Date(); // 현재 날짜
+    let date2 = ''; // 프로그램의 종료 날짜를 넣을 변수
+    let btMs = 0;  // 초로 나타낸 차이
+    let btDay = 0; // 초를 일 수로 나타낸 차이
+    if(program.targetDate){ // 프로그램의 종료일이 있을 경우
+      date2 = program.targetDate.split('-')
+      date2 = new Date(date2[0], date2[1]-1, date2[2]); 
+      btMs = date2.getTime() - date.getTime();
+      btDay = parseInt(btMs / (1000*60*60*24));  // 남은 기간 계산.
+    }
+
+
     return (
-      <Segment style={{ padding: "0em 15.6em 50em", display: "flex" }} vertical>
+      <>
+      {program ? 
+        <Segment style={{ padding: "0em 15.6em 50em", display: "flex" }} vertical>
         <SideContent part="donation" info={false} />
         <div>
           <div style={{ marginTop: "25px", display: "flex" }}>
@@ -35,7 +48,8 @@ class HomepageLayout extends Component {
           </div>
           <div style={{ marginTop: "20px", display: "flex" }}>
             <div style={{ margin: "40px" }}>
-              <Image size="massive" src={cam} />{" "}
+              {program.proImg ? <Image size="massive" src={require(`./../../public/uploads/${program.proImg}`)} />: 
+            <Image size="massive" src={cam}/>}
             </div>
             <div style={{ marginLeft: "50px" }}>
               <label style={{ fontSize: "1.3em" }}>모인금액</label>
@@ -45,7 +59,7 @@ class HomepageLayout extends Component {
               </div>
               <label style={{ fontSize: "1.3em" }}>남은 시간</label>
               <div style={{ display: "flex", marginBottom: "-55px" }}>
-                <p style={{ fontSize: "4em" }}>5</p>
+                <p style={{ fontSize: "4em" }}>{btDay}</p>
                 <p style={{ fontSize: "1.3em", marginTop: "27px" }}>일</p>
               </div>
               <label style={{ fontSize: "1.3em" }}>후원자</label>
@@ -61,7 +75,8 @@ class HomepageLayout extends Component {
           </div>
           <Cardtab />
         </div>
-      </Segment>
+      </Segment> : null}
+      </>
     );
   }
 }

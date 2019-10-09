@@ -15,6 +15,9 @@ const prolist = db.sequelize.define(
         proName : {
             type: Sequelize.STRING,   
         },
+        proImg : {
+            type : Sequelize.STRING,
+        },
         targetCoin : {
             type : Sequelize.INTEGER
         },

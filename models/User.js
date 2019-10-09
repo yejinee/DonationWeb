@@ -27,6 +27,9 @@ const User = db.sequelize.define(
         userType : {
             type : Sequelize.INTEGER,
             defaultValue : 0
+        },
+        groupIntro : {
+            type: Sequelize.STRING
         }
     },
     {

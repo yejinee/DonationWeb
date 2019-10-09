@@ -2,15 +2,38 @@ const express = require('express');
 const Programs = express.Router();
 const prolist = require('../models/prolist');
 const Sequelize = require('sequelize');
+// const upload = require('./fileUpload');
+// const multer = require('multer');
+
+
+Programs.post('/uploadImg', (req, res) =>{
+    if(req.files === null){
+        return res.status(400).json({msg: 'No files upload'})
+    }
+    const file = req.files.file;
+    // const fileType = req.files.file.mimetype.split('/')[1]
+    const fileName = req.body.fileName;
+
+    file.mv(`${__dirname}/../ui/public/uploads/${fileName}`, err => {
+        if(err){
+            console.error(err);
+            return res.status(500).send(err);
+        }
+
+        res.json({fileName : fileName, filePath:`/uploads/${fileName}`})
+    })
+})
 
 Programs.post('/register', (req, res) => {  // 프로그램 등록
-    let { proName, proDesc, targetCoin, targetDate, userEmail } = req.body; // 프로그램제목, 설명, 목표코인, 마감날짜, 유저 이메일을 받는다.
+    let { proName, proDesc, targetCoin, targetDate, userEmail, proImgName} = req.body; // 프로그램제목, 설명, 목표코인, 마감날짜, 유저 이메일을 받는다.
+    const proImg = proImgName;
     const program = {
         proName,
         proDesc,
         targetCoin,
         targetDate,
-        userEmail
+        userEmail,
+        proImg
     }
     prolist.create(
         program

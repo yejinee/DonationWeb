@@ -3,14 +3,26 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button, Header, Segment } from "semantic-ui-react";
 import SideContent from "./SideContent";
-import { getEmail, regProgram } from "./pageFunction";
+import { getEmail, regProgram, imgUpload } from "./pageFunction";
 
 class HomepageLayout extends Component {
   state = { // 대표 이미지도 설정하게 해야함.
     proName : '',
     proDesc : '',
+    proImg : '',
+    proImgName : '',
     targetCoin : 0,
     targetDate : ''
+  }
+  
+  handleFileInput = (e) => {
+    const userEmail = getEmail();
+    const { proName } = this.state;
+    const imgType = e.target.files[0].type.split('/')[1];
+    this.setState({
+      proImg : e.target.files[0],
+      proImgName : userEmail+`_${proName}` + `_mainImg.${imgType}`
+    })
   }
 
   onChange = (e) =>{
@@ -19,16 +31,21 @@ class HomepageLayout extends Component {
     })
   }
   onSubmit = (e) => {
-    const { proName, proDesc, targetCoin, targetDate } = this.state;
+    const { proName, proDesc, targetCoin, targetDate, proImg, proImgName } = this.state;
+    const formData = new FormData();
+    formData.append('file', proImg);
+    formData.append('fileName', proImgName);
     const userEmail = getEmail();
     const proData = {
       proName,
       proDesc,
       targetCoin,
       targetDate,
-      userEmail
+      userEmail,
+      proImgName
     }
-    regProgram(proData)
+    imgUpload(formData);
+    regProgram(proData);
   }
   render() {
     const { proName, proDesc, targetCoin, targetDate } = this.state
@@ -66,7 +83,7 @@ class HomepageLayout extends Component {
                 대표 이미지 업로드
               </div>
               <div style={{ margin: "-22px 500px 0px 300px" }}>
-                <input className="ui mini button" type="file" /> {/*파일 부분은 아직 안 넘어가게 했음. */}
+                <input className="ui mini button" type="file" onChange={this.handleFileInput} /> {/*파일 부분은 아직 안 넘어가게 했음. */}
               </div>{" "}
             </div>
 

@@ -7,12 +7,15 @@ const cors = require('cors');
 const passport = require('passport');
 const Users = require('./routes/Users');
 const Coins = require('./routes/Coins');
+const Groups = require('./routes/Groups');
 const Program = require('./routes/Programs');
+const fileUpload = require('express-fileupload');
 
 require('./config/passport');
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(fileUpload());
 
 app.use(passport.initialize());
 
@@ -21,6 +24,7 @@ app.get('/api', (req, res) => {
 })
 app.use('/api/user', Users);
 app.use('/api/coin', Coins);
+app.use('/api/group', Groups);
 app.use('/api/pro', Program);
 
 app.listen(port, () => {

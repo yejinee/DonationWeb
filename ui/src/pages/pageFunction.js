@@ -86,7 +86,7 @@ export const getCoin = async (email) => { // 코인이 얼마있는지 가져와
   })
 }
 
-export const regProgram = async (proData) => {
+export const regProgram = async (proData) => { // 프로그램 등록
   return await axios
   .post(`/api/pro/register`, proData)
   .then(res => {
@@ -94,6 +94,15 @@ export const regProgram = async (proData) => {
   })
   .catch(err => {
     console.error(err);
+  })
+}
+
+export const imgUpload = async (formData) => {  // 이미지를 업로드 할 때 쓸거임.
+  return await axios
+  .post('/api/pro/uploadImg', formData, {
+    headers : {
+      'Content-Type' : 'multipart/form-data'
+    }
   })
 }
 
@@ -129,4 +138,41 @@ export const getNumProgram = async (proNum) => { // 해당 num의 프로그램�
   .catch(err => {
     console.error(err);
   })
+}
+
+export const modifyInfo = async (email, groupIntro) => { // email과 groupInfo를 받아서 해당 email의 그룹소개를 변경할거임
+  return await axios
+  .post(`/api/group/modifyInfo`,{
+    email,
+    groupIntro
+  })
+  .then(res => {
+    return res.data;
+  })
+  .catch(err => {
+    console.error(err);
+  })
+}
+
+export const getGroupInfo = async (email) => {  // 그룹의 소개를 가지고 오는 함수.
+  return await axios
+  .get(`/api/group/getGroupInfo/${email}`)
+  .then(res => {
+    return res.data;
+  })
+  .catch(err => {
+    console.error(err);
+  })
+}
+
+export const getGroup = async () => { // 모든 그룹을 가지고 오는 것.
+  return await axios
+  .get(`/api/group/getAllGroup`)
+  .then(res => {
+    return res.data;
+  })
+  .catch(err => {
+    console.error(err);
+  })
+
 }
