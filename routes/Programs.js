@@ -90,4 +90,22 @@ Programs.get('/getNumProgram/:proNum', (req, res) => {
     })
 })
 
+Programs.post('/donateCoin', (req, res) => { // 코인 후원 할 때 더 할 함수.
+    const { proNum, coin } = req.body;
+    prolist.update({
+        nowCoin : Sequelize.literal("nowCoin +" + coin)
+    },
+        {
+        where : {
+            proNum
+        }
+    })
+    .then(result => {
+        res.send('완료')
+    })
+    .catch(err => {
+        console.error(err);
+    })
+})
+
 module.exports = Programs;

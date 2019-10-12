@@ -42,8 +42,8 @@ setUserType = () => {  // DB에서 받아 설정한 usertoken으로부터 유저
           <Route path="/donation2" component={Donation2} />
           <Route path="/partner" component={Partner} />
           <Route path="/donacard/:proNum" component={Donacard} />
-          <Route path="/donacoin" component={Donacoin} />
-          <Route path="/donadone" component={Donadone} />
+          <Route path="/donacoin/:proNum" component={Donacoin} />
+          <Route path="/donadone/:proNum/:coin" component={Donadone} />
           <Route path="/groupintroduction" component={Groupintroduction} />
           <Route path="/groupintroedit" component={Groupintroedit}/>
           <Route path="/camparegi" component={Camparegi} />

@@ -68,7 +68,7 @@ class HomepageLayout extends Component {
                 <p style={{ fontSize: "1.3em", marginTop: "27px" }}>명</p>
               </div>
 
-              <Link to="/donacoin">
+              <Link to={`/donacoin/${this.props.match.params.proNum}`}>
                 <button class="ui fluid button">후원신청 하기</button>
               </Link>
             </div>

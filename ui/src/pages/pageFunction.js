@@ -106,7 +106,7 @@ export const imgUpload = async (formData) => {  // 이미지를 업로드 할 �
   })
 }
 
-export const getAllPrograms = async () => {
+export const getAllPrograms = async () => { // 모든 프로그램을 가져옴.
   return await axios
   .get(`/api/pro/getAllPrograms`)
   .then(res => {
@@ -174,5 +174,18 @@ export const getGroup = async () => { // 모든 그룹을 가지고 오는 것.
   .catch(err => {
     console.error(err);
   })
+}
 
+export const donateCoin = async (proNum, coin) => { // 코인 후원 할 때 사용할 함수.
+  return await axios
+  .post(`/api/pro/donateCoin`, {
+    proNum,
+    coin
+  })
+  .then(res => {
+    return res.data;
+  })
+  .catch(err => {
+    console.error(err);
+  })
 }
