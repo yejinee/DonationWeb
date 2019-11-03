@@ -115,8 +115,8 @@ class HomepageLayout extends Component {
               <Link to="/camparegidone">
                 <Button style={{ color: "#FFFFFF", background: "#27AE60" }} type="submit" 
                 onClick = {this.onSubmit}>
-                  다음 단계
-                </Button>
+                 등록하기                
+                 </Button>
               </Link>
             </div>
           </div>
