@@ -24,6 +24,10 @@ const User = db.sequelize.define(
             type : Sequelize.INTEGER,
             defaultValue : 0
         },
+        allCoin : {
+            type: Sequelize.INTEGER,
+            defaultValue: 0
+        },
         userType : {
             type : Sequelize.INTEGER,
             defaultValue : 0

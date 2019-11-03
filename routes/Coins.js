@@ -20,6 +20,23 @@ Coins.get('/getAllCoins/:email', (req, res) => {  // 코인 가져오기
     })
 });
 
+Coins.get('/getCoinAll/:email', (req, res) => {  // 코인 가져오기
+    let { email } = req.params;
+    User.findOne(
+        {
+        attributes :["coin","allCoin"],
+        where  : {
+            email
+        }
+    })
+    .then(results => {
+        res.send(results);
+    })
+    .catch(err => {
+        console.error(err);
+    })
+});
+
 Coins.post('/chargeCoins', (req, res) => {  //차지코인
     let { email, chargeCoin } = req.body;
     User.update(
