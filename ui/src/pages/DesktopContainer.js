@@ -11,6 +11,7 @@ import {
   } from 'semantic-ui-react'
 import dnlogo from '../image/dnlogo.png';
 import HomepageHeading from './HomepageHeading'
+import Home1 from './Home';
 
 class DesktopContainer extends Component {
     state = {
@@ -96,6 +97,8 @@ class DesktopContainer extends Component {
                 </Container>
               </Menu>
               {Home ? <HomepageHeading /> : null}
+              {Home ? <Home1 /> : null}
+
             </Segment>
           </Visibility>
   
