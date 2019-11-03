@@ -176,11 +176,12 @@ export const getGroup = async () => { // 모든 그룹을 가지고 오는 것.
   })
 }
 
-export const donateCoin = async (proNum, coin) => { // 코인 후원 할 때 사용할 함수.
+export const donateCoin = async (proNum, coin, email) => { // 코인 후원 할 때 사용할 함수.
   return await axios
   .post(`/api/pro/donateCoin`, {
     proNum,
-    coin
+    coin,
+    email
   })
   .then(res => {
     return res.data;

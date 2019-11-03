@@ -55,7 +55,7 @@ class HomepageLayout extends Component {
 
         <div style={{ marginTop: "50px" }}>
           <Header as="h2" style={{ fontSize: "3em" }}>
-            단체 소개
+            캠페인 등록
           </Header>
           <div style={{ margin: "90px 0px 0px 20px" }}>
             <div>

@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../database/db');
 const prolist = require('./prolist');
+const userDonaList = require('./userDonaList');
 const User = db.sequelize.define(
     'user',
     {
@@ -42,5 +43,5 @@ const User = db.sequelize.define(
 )
 
 User.hasMany(prolist, { foreignKey: 'userEmail', sourceKey: 'email' })
-
+User.hasMany(userDonaList, { foreignKey:'email', sourceKey: 'email'});
 module.exports = User;

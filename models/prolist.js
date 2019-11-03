@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../database/db');
+const userDonaList = require('./userDonaList');
 
 const prolist = db.sequelize.define(
     'prolist',
@@ -44,5 +45,7 @@ const prolist = db.sequelize.define(
         timestamps: false
     }
 )
+
+prolist.hasMany(userDonaList, { foreignKey:'proNum', sourceKey: 'proNum'})
 
 module.exports = prolist;

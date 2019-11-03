@@ -30,7 +30,8 @@ class HomepageLayout extends Component {
     e.preventDefault();
     const { proNum } = this.props.match.params
     const { coin } = this.state;
-    donateCoin(proNum, coin).then(res => {
+    const email = getEmail();
+    donateCoin(proNum, coin, email).then(res => {
       if(res){
         this.props.history.push(`/donadone/${proNum}/${coin}`)
       }
