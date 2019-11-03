@@ -2,6 +2,8 @@ const express = require('express');
 const Programs = express.Router();
 const prolist = require('../models/prolist');
 const Sequelize = require('sequelize');
+const User = require('../models/User');
+const userDonaList = require('../models/userDonaList');
 // const upload = require('./fileUpload');
 // const multer = require('multer');
 
@@ -91,7 +93,7 @@ Programs.get('/getNumProgram/:proNum', (req, res) => {
 })
 
 Programs.post('/donateCoin', (req, res) => { // 코인 후원 할 때 더 할 함수.
-    const { proNum, coin } = req.body;
+    const { proNum, coin, email } = req.body;
     prolist.update({
         nowCoin : Sequelize.literal("nowCoin +" + coin)
     },
@@ -101,7 +103,23 @@ Programs.post('/donateCoin', (req, res) => { // 코인 후원 할 때 더 할 �
         }
     })
     .then(result => {
-        res.send('완료')
+        User.update({
+            coin : Sequelize.literal("coin -" + coin),
+            allCoin : Sequelize.literal("allCoin +" + coin)
+        }, {
+            where : {
+                email
+            }
+        })
+        .then(result=> {
+            userDonaList.create({
+                email,
+                proNum,
+                donaCoin : coin,
+            })
+        }).then(result => {
+            res.send('완료')
+        })
     })
     .catch(err => {
         console.error(err);

@@ -21,11 +21,11 @@ const User = db.sequelize.define(
         birth : {
             type : Sequelize.DATE,
         },
-        coin : {
+        coin : { // 현재코인
             type : Sequelize.INTEGER,
             defaultValue : 0
         },
-        allCoin : {
+        allCoin : { // 총 후원 코인
             type: Sequelize.INTEGER,
             defaultValue: 0
         },

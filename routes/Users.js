@@ -6,6 +6,7 @@ const passport = require('passport');
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const nodemailer = require('nodemailer');
+const db = require("../database/db");
 
 users.post('/login', (req, res, next) => {  // 로그인
     passport.authenticate('login', (err, users, info) => {
@@ -309,4 +310,14 @@ users.post("/findid", (req, res) => {
     }
   });
 });
+
+users.get('/mydonalist/:email', (req, res) => {
+    let email = req.params.email
+
+    let query = `SELECT a.proNum, proName, proImg, targetCoin, nowCoin, targetDate, SUM(donaCoin) donacoin  FROM prolists a , userDonaLists b WHERE b.email = "${email}" AND a.proNum = b.proNum GROUP BY b.proNum `;
+
+    db.sequelize.query(query).then(([results, metadata]) => {
+        res.send(results);
+    })
+})
 module.exports = users;

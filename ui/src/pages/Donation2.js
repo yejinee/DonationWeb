@@ -29,9 +29,9 @@ class HomepageLayout extends Component {
 
       <div> 
 
-      <div style= {{marginTop : "25px", display: 'flex'}}>
+      <div style= {{marginTop : "25px", marginRight: "20px"}}>
       <Header as='h2' style={{ fontSize: '3em' }}>캠페인 후원하기</Header>      </div>
-      <div style= {{marginTop : "20px", display: 'flex'}}>
+      <div style= {{marginTop : "20px", display: 'flex', width:"100%",  flexWrap: 'wrap'}}>
         {programs.map(program => (
           <div style= {{margin : "10px"}}> 
             <Link to={`/donacard/${program.proNum}`}><Donamenu program = {program}/></Link>

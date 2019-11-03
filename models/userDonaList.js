@@ -7,11 +7,13 @@ const userDonaList = db.sequelize.define(
             type : Sequelize.STRING,
             primaryKey : true,
         },
-        PASSWORD: {
-            type: Sequelize.STRING,
+        proNum: {
+            type: Sequelize.INTEGER,
+            primaryKey : true,
         },
         date : {
             type: Sequelize.DATE,
+            primaryKey : true,
             defaultValue : Sequelize.NOW
         },
         donaCoin : {
