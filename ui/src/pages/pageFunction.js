@@ -3,6 +3,7 @@ import {
   } from 'semantic-ui-react'
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import { readSync } from 'fs';
 
 export const getWidth = () => {
     const isSSR = typeof window === 'undefined'
@@ -188,5 +189,16 @@ export const donateCoin = async (proNum, coin, email) => { // 코인 후원 할 
   })
   .catch(err => {
     console.error(err);
+  })
+}
+
+export const getDonaList = async (proNum) => {
+  return await axios
+  .get(`/api/pro/getdonalist/${proNum}`)
+  .then(res => {
+    return res.data;
+  })
+  .catch(err => {
+    console.log(err);
   })
 }

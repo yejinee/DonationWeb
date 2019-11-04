@@ -126,4 +126,18 @@ Programs.post('/donateCoin', (req, res) => { // 코인 후원 할 때 더 할 �
     })
 })
 
+Programs.get('/getdonalist/:proNum', (req, res) => {
+    const { proNum } = req.params;
+    userDonaList.findAll({
+        where : {
+            proNum
+        }
+    }).then(results => {
+        res.send(results)
+    })
+    .catch(err => {
+        console.error(err);
+    })
+})
+
 module.exports = Programs;

@@ -5,12 +5,13 @@ import Cardtab from "../components/Cardtab";
 import { Link } from "react-router-dom";
 import { Header, Image, Segment } from "semantic-ui-react";
 import SideContent from "./SideContent";
-import { getNumProgram } from './pageFunction';
+import { getNumProgram, getDonaList } from './pageFunction';
 //9.후원하기-후원안내
 
 class HomepageLayout extends Component {
   state = {
-    program : {}
+    program : {},
+    donalist : []
   }
   componentDidMount() {
     const { proNum } = this.props.match.params;
@@ -19,10 +20,16 @@ class HomepageLayout extends Component {
         program : res
       })
     })
+    getDonaList(proNum).then(res => {
+      this.setState({
+        donalist : res
+      })
+    })
+
   }
 
   render() {
-    const { program } = this.state;
+    const { program, donalist } = this.state;
     const date = new Date(); // 현재 날짜
     let date2 = ''; // 프로그램의 종료 날짜를 넣을 변수
     let btMs = 0;  // 초로 나타낸 차이
@@ -73,7 +80,7 @@ class HomepageLayout extends Component {
               </Link>
             </div>
           </div>
-          <Cardtab />
+          <Cardtab donalist = {donalist} />
         </div>
       </Segment> : null}
       </>
