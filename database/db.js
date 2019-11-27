@@ -1,10 +1,11 @@
 const Squelize = require('sequelize');
 const db = {}
+//hanium
 const sequelize = new Squelize('hanium',
     'hanium',
-    'mypassword',
+    'hanium2019',
 {
-    host : "haniumweb.cdxxehj8l1sk.ap-northeast-2.rds.amazonaws.com",
+    host : "db1.cebta7nkjtt3.ap-northeast-2.rds.amazonaws.com", 
     dialect : 'mysql',
     operatorsAliases: false,
 

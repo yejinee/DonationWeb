@@ -202,3 +202,10 @@ export const getDonaList = async (proNum) => {
     console.log(err);
   })
 }
+
+export const createBuy = async (proNum) => { // 새로운 buy 생성.
+  return await axios
+  .post('/api/pay/createBuy',{
+    proNum
+  })
+}

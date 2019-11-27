@@ -67,7 +67,7 @@ class HomepageLayout extends Component{
                 >
                   <div sytle={{ marginTop: "20px" }}>
                     <h1 class="ui inverted header">
-                      {nowCoin}코인
+                      {Number(nowCoin)+Number(chargeCoin)}코인
                       <div class="sub header">나의 코인</div>
                     </h1>
                   </div>

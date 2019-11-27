@@ -41,14 +41,14 @@ class ItemExampleDivided extends Component {
                 <p>모인금액 : {pro.nowCoin}코인</p>
               </Item.Description>
               <Item.Extra>
-                <Button
+                {/*<Button
                   style={{ color: "#FFFFFF", background: "#27AE60" }}
                   primary
                   floated="right"
                 >
                   기부하기
                   <Icon name="right chevron" />
-                </Button>
+                </Button>*/}
                 <Label>진행중</Label>
               </Item.Extra>
             </Item.Content>
