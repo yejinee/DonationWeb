@@ -5,6 +5,7 @@ import { Header, Segment } from "semantic-ui-react";
 import SideContent from "./SideContent";
 import { getGroup } from './pageFunction';
 // 마운트가 되고 난후에 모든 그룹을 가져와서 배열로 만들어서 map 함수를 써서 사진들과 정보들이 나오게 한다.
+
 class HomepageLayout extends Component {
   state = {
     group : []

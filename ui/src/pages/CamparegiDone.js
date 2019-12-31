@@ -1,5 +1,5 @@
 //19.캠페인등록 
-import React from 'react'
+import React  from 'react'
 import { Link } from 'react-router-dom';
 import {
   Button,
@@ -9,6 +9,7 @@ import {
 import SideContent from './SideContent';
 
 const HomepageLayout = () => (
+ 
     <Segment style={{ padding: '0em 15.6em 50em', display: 'flex' }} vertical >
     <SideContent part ="groupmypage2"/>
    
@@ -22,5 +23,7 @@ const HomepageLayout = () => (
    </div>
    </div>
     </Segment>
+    
 )
+    
 export default HomepageLayout

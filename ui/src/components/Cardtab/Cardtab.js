@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Menu, Segment } from 'semantic-ui-react'
+import ssstory from "../../image/ssstory.PNG";
 
 export default class MenuExampleSecondaryPointing extends Component {
   state = { activeItem: 'home' }
@@ -27,12 +28,8 @@ export default class MenuExampleSecondaryPointing extends Component {
       
         </Menu>
         {activeItem === '스토리' ?  <div>
-            {donalist.map(dona => {
-              const date = dona.date.slice(0,10);
-              return (
-                <p>{date+" " + dona.email+'님이 '+ dona.donaCoin+ '코인을 후원하셨습니다'}</p>
-              )
-            })}
+        <img src={ssstory} />
+
           </div>: ""}
 
         

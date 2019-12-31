@@ -8,6 +8,7 @@ const payment = db.sequelize.define(
         proNum: {
             type: Sequelize.INTEGER,
             primaryKey : true,
+            autoIncrement : true
         },
         product1 : {
             type : Sequelize.INTEGER,
@@ -22,6 +23,10 @@ const payment = db.sequelize.define(
             defaultValue : 0
         },
         totalpay : {
+            type : Sequelize.INTEGER,
+            defaultValue: 0
+        },
+        nowpay: {
             type : Sequelize.INTEGER,
             defaultValue: 0
         }

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
+import React, { useState, useEffect  } from 'react'
+import { Link } from 'react-router-dom';
+import { Button, Icon, Image, Item, Label} from 'semantic-ui-react'
 import cam from '../../image/cam.PNG';
 import { getEmail } from '../../pages/pageFunction';
 import axios from 'axios';
@@ -34,10 +35,14 @@ const ItemExampleDivided = () => {
         
        </Item.Description>
         <Item.Extra>
+          
+        <Link to={`/Mydonahistory/${dona.proNum}`}>
         <Button style={{color: '#FFFFFF', background:'#27AE60'}} primary floated='right'>
             사용내역
             <Icon name='right chevron' />
           </Button>
+          </Link>
+
           <Label style={{color: '#FFFFFF', background:'#1E8157'}}>후원 완료</Label>
           
         </Item.Extra>

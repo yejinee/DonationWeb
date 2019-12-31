@@ -9,15 +9,15 @@ import {
 } from 'semantic-ui-react'
 import SideContent from './SideContent';
 import querystring from 'query-string'; // 쿼리 스트링을 쉽게 객체로 바꿔주는 모듈
-import { createBuy } from './pageFunction'; 
+import { chargeCoin, getEmail } from './pageFunction'; 
 
 // 충전 그 다음 카드번호를 치는 화면 
 
 const HomepageLayout = ({ location}) => {
     const query = querystring.parse(location.search);
     const onClick = () => {
-        const proNum = "11";
-        createBuy(proNum)
+        const email = getEmail();
+        chargeCoin(email, query.coin)
     }
     return (
     <Segment style={{ padding: '0em 15.6em 50em', display: 'flex' }} vertical >

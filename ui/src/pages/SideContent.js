@@ -38,8 +38,7 @@ const SideContent = ({part, info}) => {
           <p as='a'header style={{fontSize:'2em',fontWeight:'bold'}}>그룹 페이지<br/></p>
           <Link to ="/groupintroduction" style={part === 'groupmypage1' ? {fontWeight : 'bold',fontSize:'1.28em', color :'#27AE60' } : {fontSize:'1.28em', color :'#000000' } }colorblack>단체 소개</Link> <hr style={{marginLeft:'0em'}} width="170"/>
           <Link to ="/campalist" style={ part === 'groupmypage2' ? {fontWeight : 'bold',fontSize:'1.28em', color :'#27AE60' } : {fontSize:'1.28em', color :'#000000' }}colorblack>캠페인</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-          <Link to ="/buy" style={part === 'groupmypage3' ? {fontWeight : 'bold',fontSize:'1.28em', color :'#27AE60' } : {fontSize:'1.28em', color :'#000000' }}colorblack>기부물품 구매</Link> <hr style={{marginLeft:'0em'}} width="170"/>
-          <Link to ="/shoppingbasket" style={part === 'groupmypage4' ? {fontWeight : 'bold',fontSize:'1.28em', color :'#27AE60' } : {fontSize:'1.28em', color :'#000000' }}colorblack>장바구니</Link> <hr style={{marginLeft:'0em'}} width="170"/>
+         
         </>    
           
             }

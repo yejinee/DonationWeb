@@ -47,6 +47,7 @@ class HomepageLayout extends Component {
     imgUpload(formData);
     regProgram(proData);
   }
+
   render() {
     const { proName, proDesc, targetCoin, targetDate } = this.state
     return (
@@ -112,7 +113,7 @@ class HomepageLayout extends Component {
 
             <hr size="1.5" color="#EAEAEA" />
             <div style={{ display: "flex", margin: "50px 0px 0px 250px" }}>
-              <Link to="/camparegidone">
+              <Link to={`/camparegidone`}>
                 <Button style={{ color: "#FFFFFF", background: "#27AE60" }} type="submit" 
                 onClick = {this.onSubmit}>
                  등록하기                

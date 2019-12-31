@@ -12,17 +12,18 @@ const Program = require('./routes/Programs');
 const Payment = require('./routes/Payments');
 //const Blockchain = require('./routes/Blockchain');
 const fileUpload = require('express-fileupload');
+
 /*
 //Hyperledger Bridge
 const { FileSystemWallet, Gateway } = require("fabric-network"); // fabric sdk
 const fs = require("fs");
 const path = require("path");
 const ccpPath = path.resolve(
-  22,
+  __dirname,
   "..",
   "..",
   "..",
-  "fabric-network",
+  "basic-network",
   "connection.json"
 ); 
 const ccpJSON = fs.readFileSync(ccpPath, "utf8");
@@ -133,4 +134,5 @@ app.post("/api/donacoin/", async function(req, res) { // 돈 기부 할 때 실�
       res.status(400).json(error);
     }
   });*/
+
   

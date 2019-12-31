@@ -37,10 +37,12 @@ class HomepageLayout extends Component {
           this.props.history.push(`/donadone/${proNum}/${coin}`)
         }
       })
+
     }
     else {
       alert('코인이 부족합니다. 충전해주세요');
     }
+
   }
   render() {
     const {nowCoin} = this.state;

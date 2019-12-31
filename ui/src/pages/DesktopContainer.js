@@ -68,12 +68,13 @@ class DesktopContainer extends Component {
               >
                 <Container>
                  <Menu.Item as={Link}to ='' header>
-                  <Image size='small' src={dnlogo} style={{ top: '10px', marginRight: '1em' }} />
+                  <Image size='tiny' src={dnlogo} style={{ marginRight: '1px',marginBottom:'-50px',marginTop:'-50px' }} />
+
                   </Menu.Item>
                   <Menu.Item as={Link}to='/donation'>후원하기</Menu.Item>
                   <Menu.Item as={Link}to='/partner'>파트너기업</Menu.Item>
                   
-                  <Menu.Item as={Link}to = '/buy'>기부물품</Menu.Item>
+                  <Menu.Item as={Link}to = '/coincharge'>충전하기</Menu.Item>
                   <Menu.Item position='right'>
                     {sessionStorage.usertoken === undefined ?
                     <> 

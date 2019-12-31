@@ -22,7 +22,7 @@ const HomepageLayout = () => (
        <div style={{margin:"0px 0px 0px 800px"}}>
       
        </div>
-      <Link to="/Mydonahistory"><Mycampalistco/></Link>
+      <Mycampalistco/>
    </div>
       </div>
     </Segment>

@@ -54,11 +54,11 @@ class HomepageLayout extends Component {
             </Header>{" "}
           </div>
           <div style={{ marginTop: "20px", display: "flex" }}>
-            <div style={{ margin: "40px" }}>
-              {program.proImg ? <Image size="massive" src={require(`./../../public/uploads/${program.proImg}`)} />: 
-            <Image size="massive" src={cam}/>}
+          <div style={{ marginLeft: "100px",marginTop:'40px' }}>
+              {program.proImg ? <Image size="large" src={require(`./../../public/uploads/${program.proImg}`)} />: 
+            <Image size="large" src={cam}/>}
             </div>
-            <div style={{ marginLeft: "50px" }}>
+            <div style={{ marginLeft: "200px" ,marginTop:"10px"}}>
               <label style={{ fontSize: "1.3em" }}>모인금액</label>
               <div style={{ display: "flex", marginBottom: "-55px" }}>
                 <p style={{ fontSize: "4em" }}>{program.nowCoin}</p>
@@ -80,7 +80,8 @@ class HomepageLayout extends Component {
               </Link>
             </div>
           </div>
-          <Cardtab donalist = {donalist} />
+          <div style={{marginRight:'-270px',marginTop:'20px'}}>
+          <Cardtab donalist = {donalist} /></div>
         </div>
       </Segment> : null}
       </>

@@ -15,7 +15,7 @@ class CardExampleCard extends Component {
     const { program } = this.state;
     return (
       <Card>
-        {program.proImg ? <Image src={require(`./../../../public/uploads/${program.proImg}`)} wrapped ui={false} /> :
+      {program.proImg ? <Image src={require(`./../../../public/uploads/${program.proImg}`)} wrapped ui={false} /> :
       <Image src={cam} wrapped ui={false} />}
         <Card.Content>
           <Card.Header>{program.proName}</Card.Header>

@@ -62,7 +62,7 @@ class HomepageLayout extends Component {
                <label style={{ fontSize: "1.3em" }}>충전 코인 입력</label>{" "}
              </div>
  
-             <hr width='500px' color="#27AE60" />
+             <hr width='900px' color="#27AE60" />
  
              <div style={{ width:'500px'}}>
                <div style={{display:'flex',justifyContent:'center' }}>
@@ -72,7 +72,7 @@ class HomepageLayout extends Component {
                </div>
              </div>
  
-             <hr width='500px' color="#EAEAEA" />
+             <hr width='900px' color="#EAEAEA" />
              <div style={{ display: "flex", justifyContent:'center'}}>
                <Link to={`/coincharge2?coin=${coin}`}>
                  <Button style={{ color: "#FFFFFF", background: "#27AE60" }}>

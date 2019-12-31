@@ -4,6 +4,7 @@ const prolist = require('../models/prolist');
 const Sequelize = require('sequelize');
 const User = require('../models/User');
 const userDonaList = require('../models/userDonaList');
+const Payments = require('../models/payment');
 //const upload = require('./fileUpload');
 //const multer = require('multer');
 
@@ -28,7 +29,16 @@ Programs.post('/uploadImg', (req, res) =>{
 
 Programs.post('/register', (req, res) => {  // 프로그램 등록
     let { proName, proDesc, targetCoin, targetDate, userEmail, proImgName} = req.body; // 프로그램제목, 설명, 목표코인, 마감날짜, 유저 이메일을 받는다.
+    var product1, product2, product3=0;
+    var totalpay,nowpay=0;
     const proImg = proImgName;
+    const payprogram = {
+        product1,
+        product2,
+        product3,
+        totalpay,
+        nowpay
+    }
     const program = {
         proName,
         proDesc,
@@ -39,7 +49,11 @@ Programs.post('/register', (req, res) => {  // 프로그램 등록
     }
     prolist.create(
         program
-    )
+    ).then(results=>{
+        Payments.create(
+            payprogram
+        )
+    })
     .then(results => {
         res.send(results);
     })
@@ -47,6 +61,7 @@ Programs.post('/register', (req, res) => {  // 프로그램 등록
         console.error(err);
     })
 });
+
 
 Programs.get('/getAllPrograms', (req, res) => { // 모든 프로그램 가져오기
     prolist.findAll({
@@ -92,7 +107,27 @@ Programs.get('/getNumProgram/:proNum', (req, res) => {
     })
 })
 
-Programs.post('/donateCoin', (req, res) => { // 코인 후원 할 때 더 할 함수.
+// 이메일과 프로그램 이름  가지고 해당 프로그램 가져옴.
+Programs.get('/getmailProgram/:proName/:userEmail', (req, res) => {
+    const userEmail = req.params.email;
+    const proName = req.params;
+
+    prolist.findOne({
+        where : {
+            userEmail,
+            proName
+        }
+    })
+    .then(program => {
+        res.json(program)
+    })
+    .catch(err => {
+        console.error(err);
+    })
+})
+
+
+Programs.post('/donateCoin', (req, res) => { // 코인 후원 할 때 더 할 함수. + payment에도 더해줘야함 
     const { proNum, coin, email } = req.body;
     prolist.update({
         nowCoin : Sequelize.literal("nowCoin +" + coin)
@@ -117,6 +152,15 @@ Programs.post('/donateCoin', (req, res) => { // 코인 후원 할 때 더 할 �
                 proNum,
                 donaCoin : coin,
             })
+            .then(result=>{
+                Payments.update({
+                    totalpay : Sequelize.literal("totalpay +" + coin)
+                }, {
+                    where : {
+                        proNum
+                    }
+                })
+            })
         }).then(result => {
             res.send('완료')
         })
@@ -139,5 +183,6 @@ Programs.get('/getdonalist/:proNum', (req, res) => {
         console.error(err);
     })
 })
+
 
 module.exports = Programs;

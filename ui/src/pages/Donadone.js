@@ -10,7 +10,6 @@ class HomepageLayout extends Component {
     proName : '',
     coin : 0
   }
-
   componentDidMount() {
     const { proNum, coin } = this.props.match.params;
     getNumProgram(proNum).then(res => {
@@ -64,10 +63,10 @@ class HomepageLayout extends Component {
             기부되었습니다
           </p>
         </div>
-        <div style={{ margin: "0px,0px,0px,900px" }}>
+        <div style={{ margin: "0px,0px,0px,800px" }}>
           <div syle={{ dispaly: "flex" }}>
             <i aria-hidden="true" class="green check icon"></i>
-            <p style={{ fontSize: "2em" }}>프로그램명 : {proName}</p>
+            <p style={{ fontSize: "2em" ,marginLeft:"350px"}}>프로그램명 : {proName}</p>
           </div>
         </div>
       </div>
