@@ -1,35 +1,39 @@
-## 사용 방법
+# 사용방법
+
+## Version
 
 node 버전 : 10.16.1
 npm 버전 : 6.9.0
 
+
+## 주의 사항 
 오류나면 node와 npm 버전 맞춰 볼 것.
 
-git clone을 원하는 폴더에 받은 뒤
 
-vscode(또는 다른 에디터)로 폴더를 연다.
+## 순서
+1. git clone을 원하는 폴더에 받기
 
-server.js와 package.json이 있는 폴더에서
+2. vscode(또는 다른 에디터)로 폴더 열기
 
-npm install을 입력하여 package.json 의 dependencies에 적혀 있는 모듈들을 모두 설치한다.
+3. server.js와 package.json이 있는 폴더에서 npm install을 입력
 
-그리고 cd ui를 입력하여 ui 폴더로 이동하여
+4. package.json 의 dependencies에 적혀 있는 모듈들을 전부 설치
 
-npm install을 입력하여 ui/package.json의 dependencies에 적혀 있는 모듈들을 모두 설치한다.
+5. cd ui를 입력하여 ui 폴더로 이동해서 npm install을 입력
 
-그리고 npm install -g nodemon 을 입력하여 nodemon을 설치 하여 준다.
+6. ui/package.json의 dependencies에 적혀 있는 모듈들을 전부 설치
 
-그리고 젤 상위 폴더에서 nodemon server를 입력하여 서버를 실행시켜준다.
+7. npm install -g nodemon 을 입력하여 nodemon을 설치
 
-5000서버가 열렸습니다. 라고 콘솔창에 나오면 서버가 열린 것이다.
+8. 최상위 폴더에서 nodemon server를 입력하여 서버를 실행시켜줌
 
-그리고 cd ui를 입력하여 ui 폴더로 이동하여 npm start 또는 yarn start를 입력하여 클라이언트를 실행시킨다.
+→ ' 5000서버가 열렸습니다.'  라고 콘솔창에 나오면 서버가 열린 것임
 
-그러면 3000번 포트에서 알아서 열리고 웹을 사용 할 수 있다.
+9. cd ui를 입력하여 ui 폴더로 이동
 
-오류 나면 말해주세요.
+10. npm start 또는 yarn start를 입력하여 클라이언트를 실행시킴
 
-ui 약간 수정 및 리팩토링 했습니다.
+→ 3000번 포트에서 알아서 열리고 웹 사용 가능
 
-현재 백엔드 구현 :
-로그인, 회원가입, 
+
+현재 Server 구동중 아니므로 작동 불가능 
